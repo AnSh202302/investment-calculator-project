@@ -11,6 +11,7 @@ const initialInvestment = {
 
 function App() {
   const [dataInvestment, setDataInvestment] = useState(initialInvestment);
+  const inputIsValid = dataInvestment.duration >= 1;
   function handleChange(nameInput, valueInput) {
     setDataInvestment((prevState) => {
       return {
@@ -22,7 +23,11 @@ function App() {
   return (
     <>
       <UserInput dataInvestment={dataInvestment} onChange={handleChange} />
-      <Results input={dataInvestment} />
+      {inputIsValid ? (
+        <Results input={dataInvestment} />
+      ) : (
+        <p className="center">Please enter a value duration than zero</p>
+      )}
     </>
   );
 }

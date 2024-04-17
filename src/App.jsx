@@ -4,9 +4,9 @@ import Results from "./components/Results";
 
 const initialInvestment = {
   initialInvestment: 15000,
-  annualInvestment: 0,
-  expectedReturn: 0,
-  duration: 0,
+  annualInvestment: 1200,
+  expectedReturn: 6,
+  duration: 5,
 };
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     setDataInvestment((prevState) => {
       return {
         ...prevState,
-        [nameInput]: valueInput,
+        [nameInput]: Number(valueInput),
       };
     });
   }

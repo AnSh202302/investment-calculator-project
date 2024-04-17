@@ -1,23 +1,4 @@
-import { useState } from "react";
-const initialInvestment = {
-  initialInvestment: 15000,
-  annualInvestment: 0,
-  expectedReturn: 0,
-  duration: 0,
-};
-
-export default function UserInput() {
-  const [dataInvestment, setDataInvestment] = useState(initialInvestment);
-  console.log(dataInvestment);
-  function handleChange(nameInput, valueInput) {
-    // const newDataInvestment =
-    setDataInvestment((prevState) => {
-      return {
-        ...prevState,
-        [nameInput]: valueInput,
-      };
-    });
-  }
+export default function UserInput({ dataInvestment, onChange }) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -27,7 +8,7 @@ export default function UserInput() {
             type="number"
             required
             id="initialInvestment"
-            onChange={(e) => handleChange(e.target.id, e.target.value)}
+            onChange={(e) => onChange(e.target.id, e.target.value)}
             value={dataInvestment.initialInvestment}
           />
         </p>
@@ -37,7 +18,7 @@ export default function UserInput() {
             type="number"
             required
             id="annualInvestment"
-            onChange={(e) => handleChange(e.target.id, e.target.value)}
+            onChange={(e) => onChange(e.target.id, e.target.value)}
             value={dataInvestment.annualInvestment}
           />
         </p>
@@ -49,7 +30,7 @@ export default function UserInput() {
             type="number"
             required
             id="expectedReturn"
-            onChange={(e) => handleChange(e.target.id, e.target.value)}
+            onChange={(e) => onChange(e.target.id, e.target.value)}
             value={dataInvestment.expectedReturn}
           />
         </p>
@@ -59,7 +40,7 @@ export default function UserInput() {
             type="number"
             required
             id="duration"
-            onChange={(e) => handleChange(e.target.id, e.target.value)}
+            onChange={(e) => onChange(e.target.id, e.target.value)}
             value={dataInvestment.duration}
           />
         </p>
